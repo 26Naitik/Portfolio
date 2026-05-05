@@ -38,7 +38,7 @@ const Navbar = () => {
 </motion.div>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex space-x-8">
+        <div className="hidden md:flex space-x-8 items-center">
           {navLinks.map((link, index) => (
             <motion.a
               key={link.name}
@@ -51,6 +51,16 @@ const Navbar = () => {
               {link.name}
             </motion.a>
           ))}
+          <motion.a
+            href="/resume.pdf"
+            target="_blank"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: navLinks.length * 0.1 }}
+            className="px-4 py-2 text-sm font-medium text-white bg-primary/80 hover:bg-primary border border-primary/50 shadow-lg shadow-primary/20 rounded-lg transition-all"
+          >
+            Resume
+          </motion.a>
         </div>
 
         {/* Mobile Nav Toggle */}
@@ -79,6 +89,14 @@ const Navbar = () => {
                 {link.name}
               </a>
             ))}
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              onClick={() => setIsOpen(false)}
+              className="text-primary font-medium hover:text-blue-400 py-2 border-t border-gray-800 transition-colors"
+            >
+              Download Resume
+            </a>
           </div>
         </motion.div>
       )}

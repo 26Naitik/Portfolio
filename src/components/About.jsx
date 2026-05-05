@@ -27,13 +27,13 @@ const About = () => {
             className="space-y-6 text-gray-400 text-lg leading-relaxed"
           >
             <p>
-              Hello! I'm Naitik Tarkeshwar Gupta, a Computer Science Engineering student currently studying at <span className="text-white font-medium">Parul University, Vadodara</span>. 
+              Hello! I'm Naitik Tarkeshwar Gupta, an aspiring Software Engineer and Computer Science student at <span className="text-white font-medium">Parul University, Vadodara</span>. 
             </p>
             <p>
-              I have a deep passion for web development and solving complex algorithmic problems (DSA). My journey in tech started with a curiosity about how websites work, which quickly evolved into a drive to build scalable and beautiful applications.
+              I specialize in building scalable, high-performance web applications using modern technologies like React, Node.js, and MongoDB. I thrive in challenging environments—whether that means architecting robust backend services, creating pixel-perfect user interfaces, or building innovative solutions at hackathons.
             </p>
             <p>
-              Currently, I'm focused on mastering the foundational concepts of Data Structures and Algorithms while building modern web applications using the MERN stack.
+              Beyond full-stack development, I have a strong foundation in Data Structures and Algorithms (DSA) in Java. I actively solve problems to continuously refine my logic and write optimized, production-ready code.
             </p>
           </motion.div>
 

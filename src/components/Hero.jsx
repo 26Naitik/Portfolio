@@ -6,6 +6,22 @@ const Hero = () => {
   const rotateX = useSpring(useMotionValue(0), { stiffness: 140, damping: 18 })
   const rotateY = useSpring(useMotionValue(0), { stiffness: 140, damping: 18 })
 
+  // ✅ RESUME DOWNLOAD FUNCTION (NEW)
+  const handleResumeDownload = () => {
+    const confirmDownload = window.confirm(
+      "Are you interested to download the resume of Naitik Gupta?"
+    )
+
+    if (confirmDownload) {
+      const link = document.createElement("a")
+      link.href = "/resume.pdf"
+      link.download = "Naitik_Gupta_Resume.pdf"
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+    }
+  }
+
   // 🔥 TEXTS
   const texts = [
     "Building modern full-stack products.",
@@ -21,7 +37,6 @@ const Hero = () => {
 
   useEffect(() => {
     const currentText = texts[textIndex]
-
     const typingSpeed = isDeleting ? 40 : 80
 
     const timeout = setTimeout(() => {
@@ -30,7 +45,7 @@ const Hero = () => {
         setCharIndex(charIndex + 1)
 
         if (charIndex + 1 === currentText.length) {
-          setTimeout(() => setIsDeleting(true), 1200) // pause after typing
+          setTimeout(() => setIsDeleting(true), 1200)
         }
       } else {
         setDisplayText(currentText.substring(0, charIndex - 1))
@@ -67,6 +82,7 @@ const Hero = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center py-28">
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.2),transparent_35%),radial-gradient(circle_at_80%_60%,rgba(56,189,248,0.15),transparent_38%)]" />
+
       <div className="max-w-7xl mx-auto px-6 md:px-12 w-full grid lg:grid-cols-2 gap-14 items-center">
 
         <motion.div
@@ -100,12 +116,26 @@ const Hero = () => {
             >
               Projects
             </a>
+
             <a
               href="#contact"
               className="px-7 py-3.5 rounded-xl font-medium border border-gray-700 text-gray-100 hover:border-primary/60 hover:bg-primary/10 hover:-translate-y-0.5 transition-all duration-300"
             >
               Contact
             </a>
+
+            {/* ✅ UPDATED RESUME BUTTON */}
+            <button
+              onClick={handleResumeDownload}
+              className="px-7 py-3.5 rounded-xl font-medium border border-blue-500/50 bg-blue-500/10 text-blue-100 hover:bg-blue-500/20 hover:-translate-y-0.5 flex items-center gap-2 transition-all duration-300"
+            >
+              <svg stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" height="20" width="20">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Resume
+            </button>
           </div>
         </motion.div>
 
@@ -132,7 +162,6 @@ const Hero = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent" />
               </div>
 
-              {/* 🔥 REAL TYPING */}
               <div className="pt-5">
                 <h3 className="text-xl font-semibold text-white">
                   {displayText}
@@ -143,7 +172,6 @@ const Hero = () => {
                   React • Node • APIs • DSA in Java
                 </p>
               </div>
-
             </div>
 
             <div className="absolute -z-10 -inset-8 rounded-[2.5rem] bg-blue-500/20 blur-3xl" />
